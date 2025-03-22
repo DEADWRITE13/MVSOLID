@@ -1,0 +1,23 @@
+
+class CalculatorView:
+    def display_result(self, result):
+        print(f"Результат: {result}")
+    def display_error(self, message):
+        print(f"Ошибка: {message}")
+    def get_operation(self):
+        print("\nВыберите операцию:")
+        print("1. Сложение (+)")
+        print("2. Вычитание (-)")
+        print("3. Умножение (*)")
+        print("4. Деление (/)")
+        print("5. Сброс (C)")
+        print("0. Выход")
+        choice = input("Введите номер операции: ")
+        return choice
+    def get_number(self):
+        while True:
+            try:
+                num = float(input("Введите число: "))
+                return num
+            except ValueError:
+                print("Ошибка: Введите корректное число.")
