@@ -1,0 +1,9 @@
+from view import CalculatorView
+from model import CalculatorModel
+from controller import CalculatorController
+
+if __name__ == "__main__":
+    model = CalculatorModel()
+    view = CalculatorView()
+    controller = CalculatorController(model, view)
+    controller.run()
