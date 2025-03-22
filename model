@@ -1,0 +1,23 @@
+
+class CalculatorModel:
+    def __init__(self):
+        self.result = 0.0
+    def add(self, num):
+        self.result += num
+        return self.result
+    def subtract(self, num):
+        self.result -= num
+        return self.result
+    def multiply(self, num):
+        self.result *= num
+        return self.result
+    def divide(self, num):
+        if num == 0:
+            raise ValueError("Деление на ноль недопустимо")
+        self.result /= num
+        return self.result
+    def clear(self):
+        self.result = 0.0
+        return self.result
+    def get_result(self):
+        return self.result
