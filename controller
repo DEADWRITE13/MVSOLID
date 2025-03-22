@@ -1,0 +1,32 @@
+class CalculatorController:
+    def __init__(self, model, view):
+        self.model = model
+        self.view = view
+    def run(self):
+        while True:
+            operation = self.view.get_operation()
+            if operation == '0':
+                print("Завершение работы калькулятора.")
+                break
+            try:
+                if operation == '5':
+                    result = self.model.clear()
+                    self.view.display_result(result)
+                    continue
+                num = self.view.get_number()
+                if operation == '1':
+                    result = self.model.add(num)
+                elif operation == '2':
+                    result = self.model.subtract(num)
+                elif operation == '3':
+                    result = self.model.multiply(num)
+                elif operation == '4':
+                    result = self.model.divide(num)
+                else:
+                    print("Неверная операция. Попробуйте снова.")
+                    continue
+                self.view.display_result(result)
+            except ValueError as e:
+                self.view.display_error(str(e))
+            except Exception as e:
+                self.view.display_error(f"Произошла ошибка: {e}")
